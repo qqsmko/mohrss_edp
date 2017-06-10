@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jmohress.edp.dao.AttendanceMapper">
-  <resultMap id="BaseResultMap" type="com.jmohress.edp.model.Attendance">
+  <resultMap id="BaseResultMap" type="com.mohress.edp.model.Attendance">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="deviceid" jdbcType="INTEGER" property="deviceid" />
     <result column="carno" jdbcType="VARCHAR" property="carno" />
@@ -27,7 +27,7 @@
     delete from t_attendance
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.jmohress.edp.model.Attendance">
+  <insert id="insert" parameterType="com.mohress.edp.model.Attendance">
     insert into t_attendance (id, deviceid, carno, 
       datatime, studentid, fingernum
       )
@@ -35,7 +35,7 @@
       #{datatime,jdbcType=TIMESTAMP}, #{studentid,jdbcType=INTEGER}, #{fingernum,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.jmohress.edp.model.Attendance">
+  <insert id="insertSelective" parameterType="com.mohress.edp.model.Attendance">
     insert into t_attendance
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -78,7 +78,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.jmohress.edp.model.Attendance">
+  <update id="updateByPrimaryKeySelective" parameterType="com.mohress.edp.model.Attendance">
     update t_attendance
     <set>
       <if test="deviceid != null">
@@ -99,7 +99,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.jmohress.edp.model.Attendance">
+  <update id="updateByPrimaryKey" parameterType="com.mohress.edp.model.Attendance">
     update t_attendance
     set deviceid = #{deviceid,jdbcType=INTEGER},
       carno = #{carno,jdbcType=VARCHAR},
