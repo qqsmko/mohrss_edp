@@ -6,9 +6,13 @@
     http://www.springframework.org/schema/security/spring-security.xsd">
 
 
-    <http auto-config="true">
+    <!--非过滤的资源-->
+    <http pattern="**/*.css" security="none"/>
+    <http pattern="**/*.image" security="none"/>
+    <http pattern="**/*.jsp" security="none"/>
 
-        <form-login login-page="/login.jsp" authentication-failure-url="/authentication_fail.jsp"/>
+    <http auto-config="true">
+        <form-login login-page="/login.jsp"/>
         <custom-filter ref="resourceAccessSecurityInterceptor" before="FILTER_SECURITY_INTERCEPTOR"/>
     </http>
 

@@ -14,6 +14,7 @@
 		</filter>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<FileNamePattern>${catalina.base}/logs/overseas_pay.%d{yyyy-MM-dd}.log</FileNamePattern>
+			<maxHistory>30</maxHistory>
 		</rollingPolicy>
 	</appender>
 	
@@ -30,6 +31,7 @@
 		</filter>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<FileNamePattern>${catalina.base}/logs/overseas_pay_error.%d{yyyy-MM-dd}.log</FileNamePattern>
+			<maxHistory>30</maxHistory>
 		</rollingPolicy>
 	</appender>
 	
