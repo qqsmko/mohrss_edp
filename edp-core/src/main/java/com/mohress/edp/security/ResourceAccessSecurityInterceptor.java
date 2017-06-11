@@ -48,7 +48,7 @@ public class ResourceAccessSecurityInterceptor extends AbstractSecurityIntercept
 
     @Override
     public Class<?> getSecureObjectClass() {
-        return UsernamePasswordAuthenticationToken.class;
+        return FilterInvocation.class;
     }
 
     @Override

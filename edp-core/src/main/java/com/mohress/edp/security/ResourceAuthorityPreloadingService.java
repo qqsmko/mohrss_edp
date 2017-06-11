@@ -56,6 +56,6 @@ public class ResourceAuthorityPreloadingService implements FilterInvocationSecur
 
     @Override
     public boolean supports(Class<?> aClass) {
-        return aClass.isAssignableFrom(Authentication.class);
+        return true;
     }
 }

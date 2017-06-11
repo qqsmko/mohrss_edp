@@ -45,6 +45,6 @@ public class ResourceAccessDecisionService implements AccessDecisionManager {
 
     @Override
     public boolean supports(Class<?> aClass) {
-        return aClass.isAssignableFrom(Authentication.class);
+        return true;
     }
 }
