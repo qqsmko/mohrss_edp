@@ -9,12 +9,22 @@
     <!--非过滤的资源-->
     <http pattern="**/*.css" security="none"/>
     <http pattern="**/*.image" security="none"/>
-    <http pattern="**/*.jsp" security="none"/>
 
     <http auto-config="true">
-        <form-login login-page="/login"/>
         <custom-filter ref="resourceAccessSecurityInterceptor" before="FILTER_SECURITY_INTERCEPTOR"/>
+
+        <!--登录页配置-->
+        <form-login login-page="/login"/>
+
+        <!--记住我功能-->
+        <remember-me key="ptoken" use-secure-cookie="true"/>
+
+        <!--同一个账号最多只能同时在线一个-->
+        <session-management>
+            <concurrency-control max-sessions="1" error-if-maximum-exceeded="false"/>
+        </session-management>
     </http>
+
 
     <!--访问认证管理器-->
     <authentication-manager alias="authenticationManager">
