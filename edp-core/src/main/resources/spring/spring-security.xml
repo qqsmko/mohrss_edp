@@ -12,7 +12,7 @@
     <http pattern="**/*.jsp" security="none"/>
 
     <http auto-config="true">
-        <form-login login-page="/login.jsp"/>
+        <form-login login-page="/login"/>
         <custom-filter ref="resourceAccessSecurityInterceptor" before="FILTER_SECURITY_INTERCEPTOR"/>
     </http>
 
