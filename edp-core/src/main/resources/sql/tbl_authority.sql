@@ -30,3 +30,42 @@ ALTER TABLE "public"."tbl_authority" ADD UNIQUE ("authority_name");
 
 
 ALTER TABLE "public"."tbl_authority" ADD PRIMARY KEY ("id");
+
+
+insert into tbl_authority
+(authority_id,
+authority_name,
+authority_desc,
+prompt_message,
+enable,
+create_time,
+update_time)
+values
+(
+'AUTHORITY17061213523656036713',
+'AUTH_attendance_list_query',
+'查询学员考勤记录信息',
+'',
+1,
+now(),
+now()
+);
+
+insert into tbl_authority
+(authority_id,
+authority_name,
+authority_desc,
+prompt_message,
+enable,
+create_time,
+update_time)
+values
+(
+'AUTHORITY17061213523656036714',
+'AUTH_class_add',
+'添加培训课程',
+'',
+1,
+now(),
+now()
+);

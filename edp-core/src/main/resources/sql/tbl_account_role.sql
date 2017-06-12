@@ -17,3 +17,22 @@ CREATE INDEX "tbl_account_role_role_id_idx" ON "public"."tbl_account_role" USING
 CREATE INDEX "tbl_account_role_user_id_idx" ON "public"."tbl_account_role" USING btree ("user_id");
 
 ALTER TABLE "public"."tbl_account_role" ADD PRIMARY KEY ("id");
+
+
+insert into tbl_account_role
+(role_id,
+user_id)
+values
+(
+'ROLE17061213460856008695',
+'USER17061213413856038626'
+);
+
+insert into tbl_account_role
+(role_id,
+user_id)
+values
+(
+'ROLE17061213460856008696',
+'USER17061211232456024430'
+);

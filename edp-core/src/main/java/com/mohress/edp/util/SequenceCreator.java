@@ -17,6 +17,18 @@ public class SequenceCreator {
         return getSequenceId(SequenceType.USER);
     }
 
+    public static String getRoleId(){
+        return getSequenceId(SequenceType.ROLE);
+    }
+
+    public static String getAuthorityId(){
+        return getSequenceId(SequenceType.AUTHORITY);
+    }
+
+    public static String getResourceId(){
+        return getSequenceId(SequenceType.RESOURCE);
+    }
+
     static class Sequencer{
         private int sequence;
 
@@ -34,6 +46,9 @@ public class SequenceCreator {
     }
 
     enum SequenceType{
-        USER
+        USER,
+        ROLE,
+        AUTHORITY,
+        RESOURCE,
     }
 }

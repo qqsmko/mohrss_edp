@@ -12,7 +12,7 @@ public class PasswordEncoderTest {
 
     @Test
     public void testEncodePassword(){
-        String password = "root";
+        String password = "teacher";
         System.out.println(passwordEncoder.encode(password));
     }
 }

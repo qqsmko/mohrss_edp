@@ -38,3 +38,54 @@ ALTER TABLE "public"."tbl_account" ADD UNIQUE ("account");
 
 
 ALTER TABLE "public"."tbl_account" ADD PRIMARY KEY ("id");
+
+
+insert into tbl_account
+(user_id,
+account,
+password,
+login_ip,
+login_time,
+enable,
+is_locked,
+is_expired,
+create_time,
+update_time)
+values
+(
+'USER17061211232456024430',
+'root',
+'$2a$10$kGiMVpZWQ0z8z46u5e5pyOfZpZ03/PYp7HJ30FnXmRMo2.GrtRfIm',
+'',
+now(),
+1,
+0,
+0,
+now(),
+now()
+);
+
+insert into tbl_account
+(user_id,
+account,
+password,
+login_ip,
+login_time,
+enable,
+is_locked,
+is_expired,
+create_time,
+update_time)
+values
+(
+'USER17061213413856038626',
+'teacher',
+'$2a$10$aqd02rUr5zotpeJy02Tg/er..UhC90.yn/Gwa.ZxuwyYPvUHC0iDS',
+'',
+now(),
+1,
+0,
+0,
+now(),
+now()
+);

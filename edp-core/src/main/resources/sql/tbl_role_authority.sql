@@ -19,3 +19,22 @@ CREATE INDEX "tbl_role_authority_authority_id_idx" ON "public"."tbl_role_authori
 
 
 ALTER TABLE "public"."tbl_role_authority" ADD PRIMARY KEY ("id");
+
+
+insert into tbl_role_authority
+(role_id,
+authority_id)
+values
+(
+'ROLE17061213460856008695',
+'AUTHORITY17061213523656036713'
+);
+
+insert into tbl_role_authority
+(role_id,
+authority_id)
+values
+(
+'ROLE17061213460856008695',
+'AUTHORITY17061213523656036714'
+);

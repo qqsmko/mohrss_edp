@@ -9,6 +9,6 @@ public class SequenceCreatorTest {
 
     @Test
     public void testGenerateUserId(){
-        System.out.println(SequenceCreator.getUserId());
+        System.out.println(SequenceCreator.getResourceId());
     }
 }

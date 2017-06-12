@@ -26,3 +26,43 @@ COMMENT ON COLUMN "public"."tbl_access_resource"."update_time" IS '更新时间'
 ALTER TABLE "public"."tbl_access_resource" ADD UNIQUE ("resource_id");
 
 ALTER TABLE "public"."tbl_access_resource" ADD PRIMARY KEY ("id");
+
+
+insert into tbl_access_resource
+(resource_id,
+resource_name,
+resource_desc,
+resource_path,
+enable,
+create_time,
+update_time)
+values
+(
+'RESOURCE17061213580356003766',
+'URL_attendance_list',
+'查询学员考勤记录',
+'/attendance-list',
+1,
+now(),
+now()
+);
+
+insert into tbl_access_resource
+(resource_id,
+resource_name,
+resource_desc,
+resource_path,
+enable,
+create_time,
+update_time)
+values
+(
+'RESOURCE17061213580356003767',
+'URL_class-add',
+'添加培训课程',
+'/class-add',
+1,
+now(),
+now()
+);
+

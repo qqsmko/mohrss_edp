@@ -29,3 +29,42 @@ CREATE INDEX "tbl_role_role_id_idx" ON "public"."tbl_role" USING btree ("role_id
 ALTER TABLE "public"."tbl_role" ADD UNIQUE ("role_name");
 
 ALTER TABLE "public"."tbl_role" ADD PRIMARY KEY ("id");
+
+
+insert into tbl_role
+(role_id,
+role_name,
+role_desc,
+priority,
+enable,
+create_time,
+update_time)
+values
+(
+'ROLE17061213460856008695',
+'ROLE_teacher',
+'培训老师',
+5,
+1,
+now(),
+now()
+);
+
+insert into tbl_role
+(role_id,
+role_name,
+role_desc,
+priority,
+enable,
+create_time,
+update_time)
+values
+(
+'ROLE17061213460856008696',
+'ROLE_manager',
+'管理人员',
+5,
+1,
+now(),
+now()
+);

@@ -19,3 +19,22 @@ CREATE INDEX "tbl_authority_resource_resource_id_idx" ON "public"."tbl_authority
 
 
 ALTER TABLE "public"."tbl_authority_resource" ADD PRIMARY KEY ("id");
+
+
+insert into tbl_authority_resource
+(authority_id,
+resource_id)
+values
+(
+'AUTHORITY17061213523656036713',
+'RESOURCE17061213580356003766'
+);
+
+insert into tbl_authority_resource
+(authority_id,
+resource_id)
+values
+(
+'AUTHORITY17061213523656036713',
+'RESOURCE17061213580356003767'
+);
