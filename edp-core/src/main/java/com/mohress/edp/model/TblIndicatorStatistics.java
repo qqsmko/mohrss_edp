@@ -118,7 +118,7 @@ public class TblIndicatorStatistics {
                 .put("s", CycleTimeParserEnum.Second)
                 .build();
 
-        public static Date nextCycleTime(TblIndicatorStatistics indicatorStatistics){
+        private static Date nextCycleTime(TblIndicatorStatistics indicatorStatistics){
             String cycleTime = indicatorStatistics.getCycleTime();
             String cycleTimeType = cycleTime.substring(cycleTime.length()-1);
             CycleTimeParserEnum parser = parserMap.get(cycleTimeType);
