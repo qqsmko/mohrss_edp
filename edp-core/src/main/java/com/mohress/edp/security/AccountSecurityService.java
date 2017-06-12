@@ -32,7 +32,7 @@ public class AccountSecurityService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        Preconditions.checkArgument(Strings.isNullOrEmpty(userName), "登录账号名为空");
+        Preconditions.checkArgument(!Strings.isNullOrEmpty(userName), "登录账号名为空");
 
         AccountAuthorities accountAuthorities = cache.getIfPresent(userName);
         if (accountAuthorities == null){

@@ -13,6 +13,10 @@ public class SequenceCreator {
         return sequenceType.name() + DateUtil.toString(new Date(), "yyMMddHHmmss") + sequencer.getSequence();
     }
 
+    public static String getUserId(){
+        return getSequenceId(SequenceType.USER);
+    }
+
     static class Sequencer{
         private int sequence;
 
@@ -30,6 +34,6 @@ public class SequenceCreator {
     }
 
     enum SequenceType{
-        OP, //opayPayId
+        USER
     }
 }

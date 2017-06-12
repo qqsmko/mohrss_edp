@@ -13,8 +13,8 @@
     <http auto-config="true">
         <custom-filter ref="resourceAccessSecurityInterceptor" before="FILTER_SECURITY_INTERCEPTOR"/>
 
-        <!--登录页配置-->
-        <form-login login-page="/login"/>
+        <!--&lt;!&ndash;登录页配置&ndash;&gt;
+        <form-login login-page="/login"/>-->
 
         <!--记住我功能-->
         <remember-me key="ptoken" use-secure-cookie="true"/>

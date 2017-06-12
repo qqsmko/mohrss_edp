@@ -6,36 +6,36 @@
         <result column="indicator_type" property="indicatorType" jdbcType="VARCHAR"/>
         <result column="indicator_name" property="indicatorName" jdbcType="VARCHAR"/>
         <result column="cycle_time" property="cycleTime" jdbcType="VARCHAR"/>
-        <result column="cycle_Statistics_value" property="cycleStatisticsValue" jdbcType="INTEGER"/>
+        <result column="cycle_statistics_value" property="cycleStatisticsValue" jdbcType="INTEGER"/>
         <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
     </resultMap>
 
     <sql id="columnList">
-        id, indicator_type, indicator_name, cycle_time, cycle_Statistics_Value, update_time
+        id, indicator_type, indicator_name, cycle_time, cycle_statistics_value, update_time
     </sql>
 
     <select id="selectByTypeAndName" resultMap="resultMap">
         SELECT
         <include refid="columnList"/>
         FROM tbl_indicator_statistics
-        WHERE indicator_type = #{indicator_type} AND indicator_name = #{indicatorName}
+        WHERE indicator_type = #{indicatorType} AND indicator_name = #{indicatorName}
     </select>
 
     <insert id="insert" parameterType="TblIndicatorStatistics">
         INSERT INTO tbl_indicator_statistics
-        (indicator_type, indicator_name, cycle_time, cycle_Statistics_Value, update_time)
+        (indicator_type, indicator_name, cycle_time, cycle_statistics_value, update_time)
         VALUE (#{indicator_type}, #{indicator_name}, #{cycle_time}, #{cycle_Statistics_value}, #{update_time})
     </insert>
 
     <update id="updateCycleStatisticsValue">
         UPDATE tbl_indicator_statistics
-        SET cycle_Statistics_value = #{newStatisticsValue}
+        SET cycle_statistics_value = #{newStatisticsValue}
         WHERE indicator_type = #{indicatorType} AND indicator_name = #{indicatorName}
     </update>
 
     <update id="updateCycleStatisticsValueAndTime">
         UPDATE tbl_indicator_statistics
-        SET cycle_Statistics_value = #{newStatisticsValue}, update_time = #{updateTime}
+        SET cycle_statistics_value = #{newStatisticsValue}, update_time = #{updateTime}
         WHERE indicator_type = #{indicatorType} AND indicator_name = #{indicatorName}
     </update>
 

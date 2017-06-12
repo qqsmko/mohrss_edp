@@ -76,7 +76,7 @@ public class AccountAuthorityCache extends ForwardingCache<String, AccountAuthor
 
         List<TblUserRole> userRoleList = userRoleDao.selectByUserId(account.getUserId());
         if (CollectionUtils.isEmpty(userRoleList)){
-            return null;
+            return new AccountAuthorities(account, ImmutableList.<RoleAuthorities>of());
         }
 
         List<RoleAuthorities> roleAuthoritiesList = Lists.newArrayListWithExpectedSize(userRoleList.size());
