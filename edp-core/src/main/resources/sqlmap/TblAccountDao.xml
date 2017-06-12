@@ -17,7 +17,7 @@
 </resultMap>
 
     <sql id="columnList">
-        id, user_id, account, password, login_ip, enable, is_locked, is_expired, dead_line, create_time, update_time
+        id, user_id, account, password, login_ip, login_time, enable, is_locked, is_expired, dead_line, create_time, update_time
     </sql>
 
     <select id="selectByUserName" resultMap="resultMap">

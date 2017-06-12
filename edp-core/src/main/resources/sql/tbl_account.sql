@@ -11,8 +11,8 @@ CREATE TABLE "public"."tbl_account" (
 "is_locked" int2 DEFAULT 0 NOT NULL,
 "is_expired" int2 DEFAULT 0 NOT NULL,
 "dead_line" timestamp(6) DEFAULT '2030-01-01 00:00:00'::timestamp without time zone NOT NULL,
-"create_time" timestamp(6) NOT NULL,
-"update_time" timestamp(6) NOT NULL
+"create_time" timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+"update_time" timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP
 )
 WITH (OIDS=FALSE)
 

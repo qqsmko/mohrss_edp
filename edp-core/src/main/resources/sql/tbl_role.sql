@@ -7,8 +7,8 @@ CREATE TABLE "public"."tbl_role" (
 "role_desc" varchar(50) COLLATE "default" DEFAULT ''::character varying NOT NULL,
 "priority" int2 DEFAULT 100 NOT NULL,
 "enable" int2 DEFAULT 1 NOT NULL,
-"create_time" timestamp(6) NOT NULL,
-"update_time" timestamp(6) NOT NULL
+"create_time" timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+"update_time" timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP
 )
 WITH (OIDS=FALSE)
 
