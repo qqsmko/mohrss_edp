@@ -24,7 +24,7 @@
     <insert id="insert" parameterType="TblIndicatorStatistics">
         INSERT INTO tbl_indicator_statistics
         (indicator_type, indicator_name, cycle_time, cycle_statistics_value, update_time)
-        VALUE (#{indicator_type}, #{indicator_name}, #{cycle_time}, #{cycle_Statistics_value}, #{update_time})
+        VALUES (#{indicatorType}, #{indicatorName}, #{cycleTime}, #{cycleStatisticsValue}, #{updateTime})
     </insert>
 
     <update id="updateCycleStatisticsValue">

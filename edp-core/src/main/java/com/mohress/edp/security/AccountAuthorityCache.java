@@ -27,7 +27,7 @@ import static com.mohress.edp.util.MonitorNames.*;
  * Created by youtao.wan on 2017/6/6.
  */
 @Component
-public class AccountAuthorityCache extends ForwardingCache<String, AccountAuthorities> {
+public class AccountAuthorityCache extends ForwardingLoadingCache<String, AccountAuthorities> {
 
     private static final Logger log = LoggerFactory.getLogger(AccountAuthorityCache.class);
 
@@ -46,18 +46,18 @@ public class AccountAuthorityCache extends ForwardingCache<String, AccountAuthor
     @Resource
     private TblRoleAuthorityDao roleAuthorityDao;
 
-    private Cache<String, AccountAuthorities> singleCache;
+    private LoadingCache<String, AccountAuthorities> singleCache;
 
     public AccountAuthorityCache() {
         singleCache = new SingleCache().get();
     }
 
-    public AccountAuthorityCache(Cache<String, AccountAuthorities> singleCache) {
+    public AccountAuthorityCache(LoadingCache<String, AccountAuthorities> singleCache) {
         this.singleCache = singleCache;
     }
 
     @Override
-    protected Cache<String, AccountAuthorities> delegate() {
+    protected LoadingCache<String, AccountAuthorities> delegate() {
         return singleCache;
     }
 
@@ -118,7 +118,7 @@ public class AccountAuthorityCache extends ForwardingCache<String, AccountAuthor
         return new RoleAuthorities(role, authorityList);
     }
 
-    class SingleCache implements Supplier<Cache<String, AccountAuthorities>> {
+    class SingleCache implements Supplier<LoadingCache<String, AccountAuthorities>> {
 
         private LoadingCache<String, AccountAuthorities> cache = CacheBuilder.newBuilder()
                 .maximumSize(1000).expireAfterAccess(30, TimeUnit.MINUTES)
@@ -130,7 +130,7 @@ public class AccountAuthorityCache extends ForwardingCache<String, AccountAuthor
                 });
 
         @Override
-        public Cache<String, AccountAuthorities> get() {
+        public LoadingCache<String, AccountAuthorities> get() {
             return cache;
         }
     }

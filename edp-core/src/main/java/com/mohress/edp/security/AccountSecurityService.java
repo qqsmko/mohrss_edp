@@ -8,7 +8,10 @@ import com.mohress.edp.model.TblAccount;
 import com.mohress.edp.model.TblAuthority;
 import com.mohress.edp.util.AccountAuthorities;
 import com.mohress.edp.util.DateUtil;
+import com.mohress.edp.util.MonitorLog;
 import com.mohress.edp.util.RoleAuthorities;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -19,6 +22,9 @@ import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+
+import static com.mohress.edp.util.MonitorNames.*;
 
 /**
  * 账号信息和账号权限信息加载
@@ -26,6 +32,7 @@ import java.util.List;
  * Created by youtao.wan on 2017/6/6.
  */
 public class AccountSecurityService implements UserDetailsService {
+    private static final Logger log = LoggerFactory.getLogger(AccountSecurityService.class);
 
     @Resource
     private AccountAuthorityCache cache;
@@ -34,7 +41,13 @@ public class AccountSecurityService implements UserDetailsService {
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         Preconditions.checkArgument(!Strings.isNullOrEmpty(userName), "登录账号名为空");
 
-        AccountAuthorities accountAuthorities = cache.getIfPresent(userName);
+        AccountAuthorities accountAuthorities;
+        try {
+            accountAuthorities = cache.get(userName);
+        } catch (ExecutionException e) {
+            MonitorLog.error(log, BUSI_SECURITY, PROCESS_CACHE, NODE_LOADING, EVENT_LOAD_FAIL, String.format("Account【%s】获取缓存失败", userName), userName);
+            throw new UsernameNotFoundException(String.format("Account【%s】获取缓存失败", userName), e);
+        }
         if (accountAuthorities == null){
             throw new UsernameNotFoundException(userName + "不存在");
         }
@@ -49,9 +62,9 @@ public class AccountSecurityService implements UserDetailsService {
         UserDetails userDetails = new User(account.getAccount(),
                 account.getPassword(),
                 account.isEnable(),
-                isExpired,
+                !isExpired,
                 true,
-                account.isLocked(),
+                !account.isLocked(),
                 authorities);
         return userDetails;
     }

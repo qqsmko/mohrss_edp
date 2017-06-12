@@ -29,9 +29,7 @@
     <!--访问认证管理器-->
     <authentication-manager alias="authenticationManager">
         <authentication-provider user-service-ref="accountSecurityService">
-            <password-encoder ref="passwordEncoder">
-                <salt-source user-property="username"/>
-            </password-encoder>
+            <password-encoder ref="passwordEncoder"/>
         </authentication-provider>
     </authentication-manager>
 

@@ -11,13 +11,13 @@
     <result column="enable" property="enable" jdbcType="TINYINT"/>
     <result column="is_locked" property="isLocked" jdbcType="TINYINT"/>
     <result column="is_expired" property="isExpired" jdbcType="TINYINT"/>
-    <result column="deadLine" property="deadLine" jdbcType="TIMESTAMP"/>
+    <result column="dead_line" property="deadLine" jdbcType="TIMESTAMP"/>
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
 </resultMap>
 
     <sql id="columnList">
-        id, user_id, account, password, login_ip, enable, is_locked, is_expired, deadLine, create_time, update_time
+        id, user_id, account, password, login_ip, enable, is_locked, is_expired, dead_line, create_time, update_time
     </sql>
 
     <select id="selectByUserName" resultMap="resultMap">
