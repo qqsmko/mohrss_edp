@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -14,6 +15,40 @@ import java.util.Date;
  */
 public class DateUtil {
     private static final Logger log = LoggerFactory.getLogger(DateUtil.class);
+
+    public static Date addYear(Date date, int years){
+        return addTime(date, Calendar.YEAR, years);
+    }
+
+    public static Date addMonth(Date date, int months) {
+        return addTime(date, Calendar.MONTH, months);
+    }
+
+    public static Date addDay(Date date, int days){
+        return addTime(date, Calendar.DAY_OF_YEAR, days);
+    }
+
+    public static Date addHour(Date date, int hours){
+        return addTime(date, Calendar.HOUR, hours);
+    }
+
+    public static Date addMinute(Date date, int minutes){
+        return addTime(date, Calendar.MINUTE, minutes);
+    }
+
+    public static Date addSecond(Date date, int seconds){
+        return addTime(date, Calendar.SECOND, seconds);
+    }
+
+    private static Date addTime(Date date, int timeClass, int i){
+        if (i == 0){
+            return date;
+        }
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        c.add(timeClass, i);
+        return c.getTime();
+    }
 
     public static boolean isBeforeNow(Date date){
         return isBeforeDate(date, new Date());
