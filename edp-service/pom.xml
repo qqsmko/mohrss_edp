@@ -24,7 +24,7 @@
     </dependencies>
 
     <build>
-        <finalName>edp-service</finalName>
+        <finalName>mohrss_edp</finalName>
 
         <plugins>
             <plugin>
